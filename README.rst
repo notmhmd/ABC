@@ -10,7 +10,7 @@ The project has Two basic apps:
 * Question & Answers (A Stack Overflow-like platform)
 * Massaging app Between Students
 * Notification System To Help Student Being Active. and Also this feature shall be
-  link to the Mobile App
+  linked to the Mobile App
 
 Technology Stack
 ----------------
