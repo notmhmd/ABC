@@ -15,13 +15,14 @@ class MessagerConsumer(AsyncWebsocketConsumer):
 
         else:
             # Accept the connection
-            await self.channel_layer.group_add("{self.scope['user'].username}", self.channel_name)
+            self.send({"accept": True})
+            await self.channel_layer.group_add("{}".format(self.scope['user'].username), self.channel_name)
             await self.accept()
 
     async def disconnect(self, close_code):
         """Consumer implementation to leave behind the group at the moment the
         closes the connection."""
-        await self.channel_layer.group_discard("{self.scope['user'].username}", self.channel_name)
+        await self.channel_layer.group_discard("{}".format(self.scope['user'].username), self.channel_name)
 
     async def receive(self, text_data):
         """Receive method implementation to redirect any new message received

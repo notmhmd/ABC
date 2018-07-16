@@ -77,7 +77,7 @@ THIRD_PARTY_APPS = [
     'allauth.socialaccount',
     # 'allauth.socialaccount.providers.amazon',
     # 'allauth.socialaccount.providers.github',
-    #'allauth.socialaccount.providers.google',
+    # 'allauth.socialaccount.providers.google',
     # 'allauth.socialaccount.providers.linkedin',
     # 'allauth.socialaccount.providers.slack',
     'channels',
@@ -90,7 +90,7 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     #'notifications',
     'ABC.users.apps.UsersConfig',
-    #'ABC.notifications.apps.NotificationsConfig',
+    'ABC.notifications.apps.NotificationsConfig',
     # Your stuff: custom apps go here
     'ABC.articles.apps.ArticlesConfig',
     'ABC.messager.apps.MessagerConfig',
@@ -279,7 +279,7 @@ CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
-            'hosts': [REDIS_URL, ],
+            'hosts': [('localhost', 6379)],
         },
     }
 }

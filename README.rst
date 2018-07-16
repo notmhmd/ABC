@@ -8,6 +8,9 @@ The project has Two basic apps:
 
 * Articles (A collaborative blog)
 * Question & Answers (A Stack Overflow-like platform)
+* Massaging app Between Students
+* Notification System To Help Student Being Active. and Also this feature shall be
+  link to the Mobile App
 
 Technology Stack
 ----------------

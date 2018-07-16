@@ -22,7 +22,7 @@ $('.form-group').removeClass('row');
 
 /* Notifications JS basic client */
 $(function () {
-    let emptyMessage = 'You have no unread notification';
+    var emptyMessage = 'You have no unread notification';
 
     function checkNotifications() {
         $.ajax({
@@ -37,7 +37,7 @@ $(function () {
     };
 
     function update_social_activity (id_value) {
-        let newsToUpdate = $("[news-id=" + id_value + "]");
+        var newsToUpdate = $("[news-id=" + id_value + "]");
         payload = {
             'id_value': id_value,
         };
@@ -78,7 +78,7 @@ $(function () {
                         trigger: 'focus',
                         container: "body" ,
                         placement: "bottom",
-                        content: data,
+                        content: data
                     });
                     $("#notifications").popover('show');
                     $("#notifications").removeClass("btn-danger")
@@ -90,10 +90,11 @@ $(function () {
 
     // Code block to manage WebSocket connections
     // Try to correctly decide between ws:// and wss://
-    let ws_scheme = window.location.protocol == "https:" ? "wss" : "ws";
-    let ws_path = ws_scheme + '://' + window.location.host + "/notifications/";
-    let webSocket = new channels.WebSocketBridge();
+    var ws_scheme = window.location.protocol === "https:" ? "wss" : "ws";
+    var ws_path = ws_scheme + '://' + window.location.host + "/notifications/";
+    var webSocket = new channels.WebSocketBridge();
     webSocket.connect(ws_path);
+
 
     // Helpful debugging
     webSocket.socket.onopen = function () {

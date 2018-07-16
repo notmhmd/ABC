@@ -10,8 +10,7 @@ from markdownx.models import MarkdownxField
 from markdownx.utils import markdownify
 from taggit.managers import TaggableManager
 
-
-#from notifications.models import Notification, notification_handler
+from ABC.notifications.models import Notification, notification_handler
 
 
 class ArticleQuerySet(models.query.QuerySet):
@@ -72,7 +71,7 @@ class Article(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.slug:
-            self.slug = slugify('{self.user.username}-{self.title}',
+            self.slug = slugify('{}-{}'.format(self.user.username, self.title),
                                 to_lower=True, max_length=80)
 
         super().save(*args, **kwargs)
@@ -81,7 +80,6 @@ class Article(models.Model):
         return markdownify(self.content)
 
 
-"""""
 def notify_comment(**kwargs):
     # Handler to be fired up upon comments signal to notify the author of a
     # given article.
@@ -94,4 +92,3 @@ def notify_comment(**kwargs):
 
 
 comment_was_posted.connect(receiver=notify_comment)
-"""""

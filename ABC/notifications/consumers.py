@@ -26,8 +26,9 @@ class NotificationsConsumer(AsyncWebsocketConsumer):
         await self.channel_layer.group_discard(
            'notifications', self.channel_name)
 
-    async def receive(self, text_data):
+    async def receive(self, text_data, **kwargs):
         """Receive method implementation to redirect any new message received
         on the websocket to broadcast to all the clients.
+        :param text_data:
         :param **kwargs: """
         await self.send(text_data=json.dumps(text_data))

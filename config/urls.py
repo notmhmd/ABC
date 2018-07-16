@@ -46,8 +46,8 @@ urlpatterns = [
     url(r'^graphql', GraphQLView.as_view(graphiql=True)),
     url(r'^markdownx/', include('markdownx.urls')),
     # Local apps here
-    # url(r'^notifications/',
-    #    include('ABC.notifications.urls', namespace='notifications')),
+                  url(r'^notifications/',
+                      include('ABC.notifications.urls', namespace='notifications')),
     url(r'^articles/',
         include('ABC.articles.urls', namespace='articles')),
     url(r'^news/', include('ABC.news.urls', namespace='news')),

@@ -39,7 +39,7 @@
         <li class="send-message"></li>
       </div>
       <div class="chat-box">
-        <form role="form" method="post" action="#" id="send">
+          <form role="form" method="post" action="{% url 'messager:send_message' %}" id="send">
           <div class="form-group">
             {% csrf_token %}
             <input type="hidden" name="to" value="{{ active }}">
